@@ -1,4 +1,7 @@
 
+import os
+
+from anyio import functools
 from datetime import datetime, timedelta, timezone
 
 import jwt
@@ -11,7 +14,8 @@ from app.services.graph import graph
 from app.services.state import PriceComparisonState
 
 # --- JWT configuration ---
-SECRET_KEY = "change-me-to-a-real-secret"   # TODO: load from env / .env
+  # TODO: load from env / .env
+SECRET_KEY=os.getenv("SECRET_KEY")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
